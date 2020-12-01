@@ -1,0 +1,16 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: generic-receiver
+spec:
+  type: generic
+  resources:
+    - kind: GitRepository
+      name: go-demo
+      namespace: flux-system
+    - kind: GitRepository
+      name: flux-system
+      namespace: flux-system
+  secretRef:
+  secretRef:
+    name: generic-receiver-token

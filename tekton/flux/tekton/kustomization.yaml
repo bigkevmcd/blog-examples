@@ -1,0 +1,9 @@
+resources:
+- cluster-role.yaml
+- flux-event-listener.yaml
+- flux-notification-binding.yaml
+- flux-notification-template.yaml
+- notification-pipeline.yaml
+- role-bindings.yaml
+- role.yaml
+- service-account.yaml

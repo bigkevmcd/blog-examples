@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: flux-demo-pipeline
+spec:
+  params:
+    - name: message
+      description: incoming notification message
+      type: string
+  tasks:
+    - name: task-echo-message
+      taskSpec:
+        params:
+        - name: message
+          type: string
+        steps:
+          - name: echo
+            image: ubuntu
+            command:
+              - echo
+            args:
+              - "$(params.message)"
+      params:
+        - name: message
+          value: $(params.message)

@@ -1,0 +1,6 @@
+namespace: flux-system
+resources:
+- receiver.yaml
+- provider.yaml
+- git_repository.yaml
+- alert.yaml

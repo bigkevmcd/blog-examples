@@ -1,0 +1,20 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: flux-notification-template
+spec:
+  params:
+  - description: message
+    name: message
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      annotations:
+      name: flux-notification-run-$(uid)
+    spec:
+      params:
+      - name: message
+        value: $(tt.params.message)
+      pipelineRef:
+        name: flux-demo-pipeline
